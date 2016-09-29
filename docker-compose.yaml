@@ -1,0 +1,24 @@
+version: "2"
+services:
+  rabbitmq:
+    hostname: scraper-rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
+  lab:
+    image: golang:latest
+    volumes:
+      - .:/go/src/github.com/21stio/go-ampq-lab
+    command: make --file /go/src/github.com/21stio/go-ampq-lab/makefile run
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USERNAME=user
+      - RABBITMQ_PASSWORD=password
+    links:
+      - rabbitmq
+    ports:
+      - 9000:9000

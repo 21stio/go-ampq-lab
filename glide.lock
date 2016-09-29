@@ -1,6 +1,8 @@
-hash: 682eec414b73353c8176504a4d84209f83b4c3593645f4a003032313b9c77a13
-updated: 2016-09-28T23:52:58.208965682+02:00
+hash: 9abac7a2067d2af9c7991c7be8896ce3d2fbedb4085bd2fce40d80e05deb4cae
+updated: 2016-09-29T00:28:11.416281648+02:00
 imports:
+- name: github.com/robfig/cron
+  version: b024fc5ea0e34bc3f83d9941c8d60b0622bfaca4
 - name: github.com/streadway/amqp
   version: 2e25825abdbd7752ff08b270d313b93519a0a232
 testImports: []
